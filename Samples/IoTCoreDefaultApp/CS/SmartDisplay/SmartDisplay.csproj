@@ -237,6 +237,10 @@
     <Compile Include="Views\DevicePortal\PackagesPageVM.cs" />
     <Compile Include="Views\DevicePortal\WindowsUpdatePageVM.cs" />
     <Compile Include="Views\MainPages\AppLauncherPageVM.cs" />
+    <Compile Include="Views\MainPages\Domotique\DomotiqueBasePage.xaml.cs">
+      <DependentUpon>DomotiqueBasePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPages\Domotique\DomotiqueBasePageVM.cs" />
     <Compile Include="Views\MainPages\IWebViewElementController.cs" />
     <Compile Include="Views\MainPages\Media\WeatherPage.xaml.cs">
       <DependentUpon>WeatherPage.xaml</DependentUpon>
@@ -483,6 +487,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MainPages\Domotique\DomotiqueBasePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\MainPages\Media\WeatherPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -680,9 +688,7 @@
   <ItemGroup>
     <None Include="SmartDisplay_TemporaryKey.pfx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\MainPages\Domotique\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

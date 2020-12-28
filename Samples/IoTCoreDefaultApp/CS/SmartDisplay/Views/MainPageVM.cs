@@ -142,6 +142,7 @@ namespace SmartDisplay.ViewModels
             new NavBarDataItem(PageUtil.GetDescriptorFromTypeFullName(typeof(TilePage).FullName)),
             new NavBarDataItem(PageUtil.GetDescriptorFromTypeFullName(typeof(DeviceInfoPage).FullName)),
             new NavBarDataItem(PageUtil.GetDescriptorFromTypeFullName(typeof(CommandLinePage).FullName)),
+            new NavBarDataItem(PageUtil.GetDescriptorFromTypeFullName(typeof(DomotiqueBasePage).FullName)),
         };
 
         // ObservableCollection needs to be updated on UI thread

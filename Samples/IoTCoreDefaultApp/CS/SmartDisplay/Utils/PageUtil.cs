@@ -69,6 +69,12 @@ namespace SmartDisplay.Utils
             { DefaultPageEmoji, Common.GetLocalizedText("StartPageTileText"), typeof(TilePage), "\xF0E2" },
             { DefaultPageEmoji, Common.GetLocalizedText("DeviceInfoPageTileText"), typeof(DeviceInfoPage), "\xE950" },
             { DefaultPageEmoji, Common.GetLocalizedText("CommandLinePageTileText"), typeof(CommandLinePage), "\xE756" },
+
+            //domotique
+            { DefaultPageEmoji, Common.GetLocalizedText("DomotiqueBasePageTileText"), typeof(DomotiqueBasePage), "\xE950" },
+
+
+
             { DefaultPageEmoji, Common.GetLocalizedText("SettingsPageTileText"), typeof(SettingsPage), "\xE713" },
             { DefaultPageEmoji, Common.GetLocalizedText("AuthPageTileText"), typeof(AuthenticationPage), "\xE77B" },
         };
@@ -99,7 +105,7 @@ namespace SmartDisplay.Utils
             }
 
             var categoryPages = new Dictionary<string, PageDescriptor[]>();
-            var pages = GetFullPageList();
+            var pages = PageList;
 
             // Loop through the imported feature categories plus the built-in categories.
             foreach (var category in PageCategories.Union(categories))
@@ -112,21 +118,36 @@ namespace SmartDisplay.Utils
         }
 
         public static string GetFriendlyName(Type page)
-        {
-            var fullList = GetFullPageList();
-            return fullList.FirstOrDefault(s => s.Type == page)?.Title;
+        {            
+            return PageList.FirstOrDefault(s => s.Type == page)?.Title;
         }
 
         public static Type[] GetAllPageTypes()
         {
-            return GetFullPageList()
+            return PageList
                 .Select(pl => pl.Type)
                 .Union(SettingsPage.SettingsPages.Values)
                 .Distinct()
                 .ToArray();
         }
 
-        public static PageList GetFullPageList()
+
+        private static PageList pageList;
+        public static PageList PageList
+        {
+            get
+            {
+                if(pageList == null)
+                {
+                    pageList = getFullPageList();
+                }
+
+                return pageList;
+            }
+
+        }
+
+        private static PageList getFullPageList()
         {
             var pageList = new PageList();
 
@@ -147,12 +168,12 @@ namespace SmartDisplay.Utils
 
         public static PageDescriptor GetDescriptorFromTitle(string title)
         {
-            return GetFullPageList().FirstOrDefault(x => x.Title == title);
+            return PageList.FirstOrDefault(x => x.Title == title);
         }
 
         public static PageDescriptor GetDescriptorFromTypeFullName(string fullName)
         {
-            return GetFullPageList().FirstOrDefault(x => x.Type.FullName == fullName);
+            return PageList.FirstOrDefault(x => x.Type.FullName == fullName);
         }
 
         public static CommandBarButton CreatePageSettingCommandBarButton(IPageService pageService, SettingsUserControlBase settingControl, string title)

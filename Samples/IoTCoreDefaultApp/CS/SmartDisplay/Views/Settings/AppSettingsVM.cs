@@ -79,7 +79,7 @@ namespace SmartDisplay.ViewModels.Settings
             AreTelemetryControlsVisible = AppComposer.Imports.TelemetryServices.Count() > 0;
 
             EtwProviderGuid = string.Format(EtwProviderGUIDLabelText, Constants.EtwProviderGuid);
-            PagesCollection = new ObservableCollection<string>(PageUtil.GetFullPageList().Select(x => x.Title));
+            PagesCollection = new ObservableCollection<string>(PageUtil.PageList.Select(x => x.Title));
 
             Settings.SettingsUpdated += Settings_SettingsUpdated;
         }

@@ -1629,4 +1629,7 @@ Add music to your device using the Windows Device Portal.</value>
   <data name="ReloadButton.Content" xml:space="preserve">
     <value>Reload</value>
   </data>
+  <data name="DomotiqueBasePageTileText" xml:space="preserve">
+    <value>Domotique</value>
+  </data>
 </root>
