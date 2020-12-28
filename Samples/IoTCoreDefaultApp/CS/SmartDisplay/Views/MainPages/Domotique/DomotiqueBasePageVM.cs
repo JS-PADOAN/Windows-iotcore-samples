@@ -54,8 +54,10 @@ namespace SmartDisplay.ViewModels
         }
 
         public async Task<bool> SetUpVM()
-        {           
-            return true;
+        {
+            SmartDisplay.Domotique.Class1.Test();
+
+            return true;           
         }
 
         public void TearDownVM()

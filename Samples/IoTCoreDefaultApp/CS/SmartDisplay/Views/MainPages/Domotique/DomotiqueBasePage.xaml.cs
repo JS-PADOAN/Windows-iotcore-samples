@@ -8,7 +8,7 @@ namespace SmartDisplay.Views
 {
     public sealed partial class DomotiqueBasePage : PageBase
     {
-        public DeviceInfoPageVM ViewModel { get; } = new DeviceInfoPageVM();
+        public DomotiqueBasePageVM ViewModel { get; } = new DomotiqueBasePageVM();
         protected override BaseViewModel ViewModelImpl => ViewModel;
 
         public DomotiqueBasePage()
